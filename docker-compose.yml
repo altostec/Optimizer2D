@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  postoptimizer:
+    image: ${DOCKER_REGISTRY-}postoptimizer
+    build:
+      context: .
+      dockerfile: PostOptimizer/Dockerfile
