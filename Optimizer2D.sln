@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostOptimizer", "PostOptimizer\PostOptimizer.csproj", "{927B308A-3521-44D3-875B-7391B2930108}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostOptimizer", "PostOptimizer\PostOptimizer.csproj", "{927B308A-3521-44D3-875B-7391B2930108}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{1F19D164-2543-4E27-B001-9BB57E626458}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{C6E0DCD8-BD63-45EE-9301-1557CA0ECB76}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Old", "Old", "{4CF0B7BC-E0E4-401A-BAB5-38237FDBC0DE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optimizer2D", "..\TradesOptimizer2D\Optimizer2D\Optimizer2D\Optimizer2D.csproj", "{4FE92C8F-EE5E-45AF-87DF-7457B8862742}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +27,16 @@ Global
 		{1F19D164-2543-4E27-B001-9BB57E626458}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F19D164-2543-4E27-B001-9BB57E626458}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F19D164-2543-4E27-B001-9BB57E626458}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FE92C8F-EE5E-45AF-87DF-7457B8862742}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FE92C8F-EE5E-45AF-87DF-7457B8862742}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FE92C8F-EE5E-45AF-87DF-7457B8862742}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FE92C8F-EE5E-45AF-87DF-7457B8862742}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4FE92C8F-EE5E-45AF-87DF-7457B8862742} = {4CF0B7BC-E0E4-401A-BAB5-38237FDBC0DE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D18A53AF-227B-43BB-8C93-CF2ACA596AF8}

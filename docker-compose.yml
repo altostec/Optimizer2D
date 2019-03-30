@@ -1,8 +1,21 @@
 version: '3.4'
 
 services:
+  sql.data:
+    image: microsoft/mssql-server-linux:2017-latest
+    environment:
+      - SA_PASSWORD=Sql_Admin1
+      - ACCEPT_EULA=Y
+    ports:
+      - "5434:1433"
+
   postoptimizer:
     image: ${DOCKER_REGISTRY-}postoptimizer
     build:
       context: .
       dockerfile: PostOptimizer/Dockerfile
+    depends_on:
+      - sql.data
+
+  
+
