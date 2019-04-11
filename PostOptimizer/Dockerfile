@@ -18,5 +18,3 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "PostOptimizer.dll"]
-RUN chmod +x ./entrypoint.sh 
-CMD /bin/bash ./entrypoint.sh

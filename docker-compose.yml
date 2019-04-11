@@ -8,12 +8,14 @@ services:
       - ACCEPT_EULA=Y
     ports:
       - "5434:1433"
+    container_name: sqlserverlnx-2017
 
   postoptimizer:
-    image: ${DOCKER_REGISTRY-}postoptimizer
+    image: postoptimizer:dev
     build:
       context: .
       dockerfile: PostOptimizer/Dockerfile
+    container_name: postoptimizer
     depends_on:
       - sql.data
 
