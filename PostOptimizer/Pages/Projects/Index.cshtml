@@ -1,0 +1,81 @@
+﻿@page
+@model PostOptimizer.Pages.Projects.IndexModel
+
+@{
+    ViewData["Title"] = "Projects";
+}
+
+<h2>Projects</h2>
+
+<h3>Upload from csv</h3>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="ProjectFileUpload.Title" class="control-label"></label>
+                <input asp-for="ProjectFileUpload.Title" type="text" class="form-control" />
+                <span asp-validation-for="ProjectFileUpload.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectFileUpload.FileUpload" class="control-label"></label>
+                <input asp-for="ProjectFileUpload.FileUpload" type="file" class="form-control" style="height:auto" />
+                <span asp-validation-for="ProjectFileUpload.FileUpload" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectFileUpload.OriginalFileName" class="control-label"></label>
+                <input asp-for="ProjectFileUpload.OriginalFileName" type="text" class="form-control" />
+                <span asp-validation-for="ProjectFileUpload.OriginalFileName" class="text-danger"></span>
+            </div>
+            <input type="submit" value="Upload" class="btn btn-default" />
+        </form>
+    </div>
+</div>
+<h3>Optimizations Pass</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Projects[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Projects[0].UploadDate)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Projects[0].OriginalFileName)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Projects[0].FileSize)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Projects)
+        {
+        <tr>
+            <td>
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+            <td>
+                <a asp-page="./Details" asp-route-id="@item.Id">Open</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UploadDate)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.OriginalFileName)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.FileSize)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

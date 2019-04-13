@@ -1,0 +1,48 @@
+﻿@page
+@model PostOptimizer.Pages.Projects.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Project</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Project.Id" />
+            <div class="form-group">
+                <label asp-for="Project.Title" class="control-label"></label>
+                <input asp-for="Project.Title" class="form-control" />
+                <span asp-validation-for="Project.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Project.OriginalFileName" class="control-label"></label>
+                <input asp-for="Project.OriginalFileName" class="form-control" />
+                <span asp-validation-for="Project.OriginalFileName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Project.FileSize" class="control-label"></label>
+                <input asp-for="Project.FileSize" class="form-control" readonly="@(true)"/>                
+            </div>
+            <div class="form-group">
+                <label asp-for="Project.UploadDate" class="control-label"></label>
+                <input asp-for="Project.UploadDate" class="form-control" readonly="@(true)"/>                
+            </div>            
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

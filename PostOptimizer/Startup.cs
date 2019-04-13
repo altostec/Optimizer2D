@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using PostOptimizer.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PostOptimizer.Services;
 
 namespace PostOptimizer
 {
@@ -39,9 +40,15 @@ namespace PostOptimizer
 					Configuration.GetConnectionString("DefaultConnection")));
 			services.AddDefaultIdentity<IdentityUser>()
 				.AddEntityFrameworkStores<ApplicationDbContext>();
+			services.AddScoped<IOptimizationManager,OptimizationManager>();
 
-
-			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+			services.AddMvc()
+				.AddRazorPagesOptions(options =>
+				{
+					//Request authorization to view the Projects pages. Note: Path is relative to the root of /Pages
+					options.Conventions.AuthorizeFolder("/Projects"); 
+				})
+				.SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
